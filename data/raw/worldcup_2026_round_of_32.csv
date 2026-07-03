@@ -1,0 +1,17 @@
+date,competition,stage,home_team,away_team,home_goals,away_goals,neutral_ground,host_team,source,status,actual_advancer,match_no
+2026-06-28,world_cup_2026_r32,round_of_32,South Africa,Canada,0,1,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,completed,Canada,73
+2026-06-29,world_cup_2026_r32,round_of_32,Brazil,Japan,2,1,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,completed,Brazil,75
+2026-06-29,world_cup_2026_r32,round_of_32,Germany,Paraguay,1,1,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,completed,Paraguay,74
+2026-06-29,world_cup_2026_r32,round_of_32,Netherlands,Morocco,1,1,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,completed,Morocco,76
+2026-06-30,world_cup_2026_r32,round_of_32,Ivory Coast,Norway,1,2,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,completed,Norway,78
+2026-06-30,world_cup_2026_r32,round_of_32,France,Sweden,3,0,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,completed,France,77
+2026-06-30,world_cup_2026_r32,round_of_32,Mexico,Ecuador,2,0,0,Mexico,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,completed,Mexico,79
+2026-07-01,world_cup_2026_r32,round_of_32,England,DR Congo,2,1,1,,https://www.bavarianfootballworks.com/fifa-world-cup/224767/what-went-down-during-todays-round-of-32-matches-at-the-2026-fifa-world-cup,completed,England,80
+2026-07-01,world_cup_2026_r32,round_of_32,Belgium,Senegal,3,2,1,,https://www.bavarianfootballworks.com/fifa-world-cup/224767/what-went-down-during-todays-round-of-32-matches-at-the-2026-fifa-world-cup,completed,Belgium,82
+2026-07-01,world_cup_2026_r32,round_of_32,United States,Bosnia and Herzegovina,2,0,0,United States,https://www.bavarianfootballworks.com/fifa-world-cup/224767/what-went-down-during-todays-round-of-32-matches-at-the-2026-fifa-world-cup,completed,United States,81
+2026-07-02,world_cup_2026_r32,round_of_32,Spain,Austria,,,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,upcoming,,84
+2026-07-02,world_cup_2026_r32,round_of_32,Portugal,Croatia,,,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,upcoming,,83
+2026-07-02,world_cup_2026_r32,round_of_32,Switzerland,Algeria,,,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,upcoming,,85
+2026-07-03,world_cup_2026_r32,round_of_32,Australia,Egypt,,,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,upcoming,,88
+2026-07-03,world_cup_2026_r32,round_of_32,Argentina,Cape Verde,,,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,upcoming,,86
+2026-07-03,world_cup_2026_r32,round_of_32,Colombia,Ghana,,,1,,https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage,upcoming,,87

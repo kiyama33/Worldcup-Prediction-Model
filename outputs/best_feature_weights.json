@@ -1,0 +1,15 @@
+{
+  "feature_weights": {
+    "elo_weight": 0.5,
+    "form_weight": 0.0,
+    "coach_weight": 0.3,
+    "injury_weight": 1.0
+  },
+  "experiment_params": {
+    "lambda_decay": 0.002,
+    "base_k": 50.0
+  },
+  "test_accuracy": 0.5,
+  "test_matches": 72,
+  "selection_rule": "highest test accuracy; ties broken by macro_f1, brier_score, then log_loss"
+}

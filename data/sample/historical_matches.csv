@@ -1,0 +1,37 @@
+date,competition,stage,home_team,away_team,home_goals,away_goals,neutral_ground,host_team,source
+2022-11-20,world_cup_2022,group,Qatar,Ecuador,0,2,0,Qatar,sample
+2022-11-21,world_cup_2022,group,England,Iran,6,2,1,,sample
+2022-11-21,world_cup_2022,group,Senegal,Netherlands,0,2,1,,sample
+2022-11-22,world_cup_2022,group,Argentina,Saudi Arabia,1,2,1,,sample
+2022-11-22,world_cup_2022,group,Mexico,Poland,0,0,1,,sample
+2022-11-23,world_cup_2022,group,Germany,Japan,1,2,1,,sample
+2022-11-23,world_cup_2022,group,Spain,Costa Rica,7,0,1,,sample
+2022-11-24,world_cup_2022,group,Portugal,Ghana,3,2,1,,sample
+2022-11-24,world_cup_2022,group,Brazil,Serbia,2,0,1,,sample
+2022-11-25,world_cup_2022,group,Wales,Iran,0,2,1,,sample
+2022-11-26,world_cup_2022,group,France,Denmark,2,1,1,,sample
+2022-11-26,world_cup_2022,group,Argentina,Mexico,2,0,1,,sample
+2022-11-27,world_cup_2022,group,Belgium,Morocco,0,2,1,,sample
+2022-11-28,world_cup_2022,group,Portugal,Uruguay,2,0,1,,sample
+2022-12-01,world_cup_2022,group,Japan,Spain,2,1,1,,sample
+2022-12-02,world_cup_2022,group,Cameroon,Brazil,1,0,1,,sample
+2024-01-12,asian_cup_2023,group,Qatar,Lebanon,3,0,0,Qatar,sample
+2024-01-13,asian_cup_2023,group,Australia,India,2,0,1,,sample
+2024-01-14,asian_cup_2023,group,Japan,Vietnam,4,2,1,,sample
+2024-01-15,asian_cup_2023,group,South Korea,Bahrain,3,1,1,,sample
+2024-01-13,afcon_2023,group,Ivory Coast,Guinea-Bissau,2,0,0,Ivory Coast,sample
+2024-01-14,afcon_2023,group,Nigeria,Equatorial Guinea,1,1,1,,sample
+2024-01-15,afcon_2023,group,Senegal,Gambia,3,0,1,,sample
+2024-01-17,afcon_2023,group,Morocco,Tanzania,3,0,1,,sample
+2024-06-14,euro_2024,group,Germany,Scotland,5,1,0,Germany,sample
+2024-06-15,euro_2024,group,Spain,Croatia,3,0,1,,sample
+2024-06-16,euro_2024,group,Netherlands,Poland,2,1,1,,sample
+2024-06-17,euro_2024,group,Austria,France,0,1,1,,sample
+2024-06-18,euro_2024,group,Portugal,Czech Republic,2,1,1,,sample
+2024-06-20,euro_2024,group,Spain,Italy,1,0,1,,sample
+2024-06-20,copa_america_2024,group,Argentina,Canada,2,0,1,,sample
+2024-06-22,copa_america_2024,group,Mexico,Jamaica,1,0,1,,sample
+2024-06-24,copa_america_2024,group,Brazil,Costa Rica,0,0,1,,sample
+2024-06-25,copa_america_2024,group,Argentina,Chile,1,0,1,,sample
+2024-06-28,copa_america_2024,group,Colombia,Costa Rica,3,0,1,,sample
+2024-07-02,copa_america_2024,group,Brazil,Colombia,1,1,1,,sample
