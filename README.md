@@ -1,95 +1,48 @@
-# World Cup Prediction Model
+# World Cup Knockout Prediction
 
-This is an MVP football match prediction project focused on parameter experiments. It trains on historical international tournament samples, uses 2026 FIFA World Cup group-stage matches as the validation set, and searches feature weights for the highest validation accuracy.
+当前项目只保留一个主流程：用已经完成的 2026 世界杯比赛构建球队强度评分，然后预测下一轮淘汰赛。
 
-The output is probabilistic, not a deterministic score forecast. Football scores are noisy, so this project is a modelling/resume project, not a betting system.
+模型输出是概率估计，不是确定比分。足球比分噪声很大，结果只适合做概率参考。
 
-## Project Overview
+## Current Method
 
-The pipeline combines:
+- 训练集：2026 小组赛 + 32 进 16。
+- 测试集：16 进 8 已结束比赛。
+- 预测集：8 进 4比赛。
+- 方法：对每队进攻、防守、小组/淘汰赛表现做对手强度校正，再用 Poisson 分布生成胜平负、晋级概率和最可能比分。
+- 防过拟合：16 进 8只作为测试集，不参与训练；8 进 4只作为预测目标。
 
-- time-aware Elo ratings
-- recent form features that only use matches before the target match
-- coach proxy features
-- injury/squad-availability proxy features
-- tournament context features
-- automated weight search over Elo, form, coach, injury, decay, and Elo K-factor parameters
+## Data
 
-## Data Sources
-
-- `data/sample/historical_matches.csv`: compact historical tournament training sample.
-- `data/raw/worldcup_2026_group_stage.csv`: fetched from 2026 FIFA World Cup group pages on Wikipedia by `scripts/fetch_2026_group_stage.py`.
-- `data/sample/coach_data.csv` and `data/sample/injury_data.csv`: proxy data structures for incomplete coach and injury data.
+- `data/raw/worldcup_2026_group_stage.csv`: 2026 小组赛。
+- `data/raw/worldcup_2026_round_of_32.csv`: 32 进 16。
+- `data/raw/worldcup_2026_round_of_16.csv`: 16 进 8。
+- `data/raw/worldcup_2026_quarter_finals.csv`: 8 进 4预测赛程。
 
 ## Run
 
 ```powershell
 cd D:\Lottery\worldcup-prediction-model
-python scripts/fetch_2026_group_stage.py
-python experiments/run_weight_search.py --max-combos 300
-python experiments/train_final_model.py
-python experiments/predict_round_of_32.py
-python experiments/optimize_r32_knockout_weights.py
+python experiments\predict_quarter_finals.py
 ```
 
-Outputs are written to:
+## Outputs
 
-- `outputs/weight_search_results.csv`
-- `outputs/best_params.json`
-- `outputs/model_report.md`
-- `outputs/round_of_32_validation.csv`
-- `outputs/round_of_32_predictions.csv`
-- `outputs/round_of_32_report.md`
-- `outputs/round_of_32_threshold_selection.csv`
-- `outputs/淘汰赛权重实验结果.csv`
-- `outputs/淘汰赛单一最佳预测.csv`
-- `outputs/淘汰赛前10策略平均预测.csv`
-- `outputs/淘汰赛前10策略明细.csv`
-- `outputs/r32_knockout_weight_experiment_report.md`
-- `models/final_model.joblib`
+- `outputs/8进4预测.csv`: 8 进 4预测结果。
+- `outputs/16进8测试集结果.csv`: 16 进 8测试集表现。
+- `outputs/球队强度评分.csv`: 当前训练集下的球队评分。
+- `outputs/quarter_final_prediction_report.md`: 方法、指标和预测摘要。
 
-## Example Prediction
+CSV 里的关键字段：
 
-```powershell
-python -m src.predict_demo Spain Austria
-```
+- `home_win`, `draw`, `away_win`: 90 分钟胜平负概率。
+- `home_advancer_probability`, `away_advancer_probability`: 晋级概率，包含平局后加时/点球的抽象估计。
+- `expected_home_goals`, `expected_away_goals`: 90 分钟期望进球。
+- `top_scorelines`: 最可能的 90 分钟比分。
+- `team_strength`: 对手强度校正后的球队综合评分。
+- `schedule_strength`: 已赛对手强度，越高代表赛程越难。
 
-The demo returns win/draw/loss probabilities, expected goals, and top Poisson scorelines.
+## Notes
 
-## Round of 32 Prediction
-
-To validate on completed Round of 32 matches and predict the six upcoming fixtures:
-
-```powershell
-python experiments/predict_round_of_32.py
-```
-
-This writes validation metrics and test predictions under `outputs/round_of_32_*`. The prediction output includes Poisson-derived WDL probabilities plus model consistency warnings when the classifier and goal model disagree.
-
-## Knockout Weight Experiment
-
-To use all completed Round of 32 matches as a test set and search whether higher 2026 group-stage weight plus lower historical weight improves accuracy/conflict:
-
-```powershell
-python experiments/optimize_r32_knockout_weights.py
-```
-
-This writes the searched configurations, the single best prediction table, and a top-10 strategy ensemble average under `outputs/r32_knockout_weight_*`.
-
-## Evaluation
-
-The current experiment sorts by validation `accuracy`, matching the requested objective. It also records `log_loss`, `brier_score`, `macro_f1`, and goal MAE/RMSE so probability quality remains visible.
-
-## Limitations
-
-- The included historical training data is deliberately small for an MVP.
-- Coach and injury data are proxy/sample features where real structured feeds are unavailable.
-- Validation results can shift as live 2026 group-stage pages are updated.
-- No future match information is used when building Elo or form features.
-
-## Future Improvements
-
-- Replace sample historical data with a complete international-match dataset.
-- Add real coach tenure and injury availability feeds.
-- Expand model comparison across XGBoost, LightGBM, and calibrated sklearn models.
-- Add FastAPI and a lightweight UI after the modelling pipeline is stable.
+- 32 进 16中的晋级结果会给球队一个小幅 bonus，用来表示点球/加时晋级信息，但 16 进 8不会进入训练。
+- 如果 CSV 正被 Excel 占用，脚本会自动写入 `_updated` 或带时间戳的文件。
